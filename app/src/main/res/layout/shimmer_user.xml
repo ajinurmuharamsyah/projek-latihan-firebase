@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="1dp"
+    app:cardElevation="3dp"
+    app:contentPadding="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:padding="10dp">
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/profilIv"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="5dp"
+            android:background="@color/gray"
+            app:civ_border="true"
+            app:civ_border_width="1dp"
+            app:civ_border_color="@color/gray"/>
+        <!--Online or offline-->
+        <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            android:background="@color/gray"
+            android:layout_toEndOf="@id/profilIv"
+            android:layout_toStartOf="@id/onltv"
+            android:layout_marginEnd="5dp"
+            android:maxLines="3" />
+        <TextView
+            android:id="@+id/onltv"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            android:background="@color/gray"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="5dp"
+            android:maxLines="3" />
+        <ImageView
+            android:id="@+id/nextIv"
+            android:layout_below="@id/onltv"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@color/gray"
+            android:layout_marginEnd="5dp"/>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

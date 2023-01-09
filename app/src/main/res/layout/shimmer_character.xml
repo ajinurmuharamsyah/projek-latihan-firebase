@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:contentPadding="10dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="8dp"
+    android:elevation="8dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/sampulRl"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="140dp"-->
+<!--            android:layout_marginEnd="5dp"-->
+<!--            android:background="@color/gray3">-->
+<!--            -->
+
+<!--        </RelativeLayout>-->
+
+        <ImageView
+            android:id="@+id/sampulRl"
+            android:layout_width="100dp"
+            android:layout_height="140dp"
+            android:background="@color/gray"/>
+
+        <TextView
+            android:id="@+id/nameTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            android:background="@color/gray"
+            android:layout_toEndOf="@id/sampulRl"
+            android:layout_toStartOf="@id/moreBtn"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:maxLines="1" />
+        <TextView
+            android:id="@+id/animeTv"
+            android:layout_below="@id/nameTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="5dp"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:background="@color/gray"
+            android:layout_toEndOf="@id/sampulRl"
+            android:maxLines="4"
+            android:ellipsize="end"/>
+        <TextView
+            android:id="@+id/genderTv"
+            android:layout_below="@id/animeTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="5dp"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:background="@color/gray"
+            android:layout_toEndOf="@id/sampulRl"
+            android:maxLines="4"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/ageTv"
+            android:layout_below="@id/genderTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:background="@color/gray"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@id/sampulRl"
+            android:maxLines="4"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/birthdayTv"
+            android:layout_below="@id/ageTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:background="@color/gray"
+            android:layout_toEndOf="@id/sampulRl"
+            android:layout_marginStart="5dp"
+            android:maxLines="4"
+            android:ellipsize="end"/>
+
+        <ImageButton
+            android:id="@+id/moreBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:padding="5dp"
+            android:src="@drawable/ic_more_vert_gray_24dp"
+            android:background="@color/gray"/>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

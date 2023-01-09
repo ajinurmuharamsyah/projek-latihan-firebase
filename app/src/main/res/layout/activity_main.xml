@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--toolbar-->
+    <RelativeLayout
+        android:id="@+id/toolbarRl"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Dashboard Note List"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginTop="5dp"/>
+
+        <ImageButton
+            android:id="@+id/setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="10dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_settings_black_24dp"
+            android:background="@android:color/transparent" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/tabs"
+        android:layout_below="@id/toolbarRl"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@drawable/tab_mode"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_centerInParent="true">
+
+        <!--Button: open to anime list-->
+        <Button
+            android:id="@+id/animeTab"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Anime Favorite"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:background="@android:color/transparent"/>
+        <Button
+            android:id="@+id/characterTab"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="character Favorite"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:background="@android:color/transparent"/>
+
+    </LinearLayout>
+
+    <!--content anime-->
+    <RelativeLayout
+        android:id="@+id/content_anime"
+        android:layout_below="@id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+        <!--Search-->
+        <EditText
+            android:id="@+id/searchEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:hint="Search"
+            android:drawableStart="@drawable/ic_search_black_24dp"
+            android:padding="10dp"
+            android:background="@color/white"
+            android:textColorHint="@color/gray"
+            android:visibility="visible"/>
+
+        <TextView
+            android:id="@+id/tvinfoanime"
+            android:layout_below="@id/searchEt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Anime list:"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/numberanime"
+            android:layout_below="@id/searchEt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@id/tvinfoanime"
+            android:text="null"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="15sp"/>
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_anime"
+            android:layout_below="@id/searchEt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <include layout="@layout/shimmer_anime">
+
+                </include>
+                <include layout="@layout/shimmer_anime">
+
+                </include>
+                <include layout="@layout/shimmer_anime">
+
+                </include>
+                <include layout="@layout/shimmer_anime">
+
+                </include>
+            </LinearLayout>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <!--anime List-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/animeRv"
+            android:layout_above="@id/footerRl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tvinfoanime"
+            android:layout_margin="10dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/row_anime_list"
+            android:visibility="invisible"/>
+
+        <LinearLayout
+            android:id="@+id/footerRl"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:orientation="horizontal"
+            android:background="@color/colorPrimary"
+            android:layout_alignParentBottom="true">
+
+            <!--Button: open to view pdf-->
+<!--            <Button-->
+<!--                android:id="@+id/addSeasonBtn"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_weight="1"-->
+<!--                android:drawableTop="@drawable/ic_add_to_queue_black_24dp"-->
+<!--                android:text="Add Season Title"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:background="@color/colorPrimary"/>-->
+<!--            Button: add anime-->
+            <Button
+                android:id="@+id/addAnimeFavorite"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_live_tv_black_24dp"
+                android:text="Add Anime Favorite"
+                android:textColor="@color/white"
+                android:background="@color/colorPrimary"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!--content characater-->
+    <RelativeLayout
+        android:id="@+id/content_characater"
+        android:layout_below="@id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+        <!--Search-->
+        <EditText
+            android:id="@+id/searchEt2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:hint="Search"
+            android:drawableStart="@drawable/ic_search_black_24dp"
+            android:padding="10dp"
+            android:background="@color/white"
+            android:textColorHint="@color/gray" />
+        <TextView
+            android:id="@+id/tvinfocharacter"
+            android:layout_below="@id/searchEt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Character list:"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/numbercharacter"
+            android:layout_below="@id/searchEt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@id/tvinfocharacter"
+            android:text="null"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="15sp"/>
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_character"
+            android:layout_below="@id/tvinfocharacter"
+            android:layout_above="@id/footerRl2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            android:layout_margin="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <include layout="@layout/shimmer_character">
+
+                </include>
+                <include layout="@layout/shimmer_character">
+
+                </include>
+                <include layout="@layout/shimmer_character">
+
+                </include>
+                <include layout="@layout/shimmer_character">
+
+                </include>
+            </LinearLayout>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <!--anime List-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/characaterRv"
+            android:layout_above="@id/footerRl2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tvinfocharacter"
+            android:layout_margin="10dp"
+            android:visibility="invisible"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/row_season_list" />
+
+        <LinearLayout
+            android:id="@+id/footerRl2"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:orientation="horizontal"
+            android:background="@color/colorPrimary"
+            android:layout_alignParentBottom="true">
+            <!--Button: add character-->
+            <Button
+                android:id="@+id/addChacterFavorite"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_favorite_black_24dp"
+                android:text="Add Character Favorite"
+                android:textColor="@color/white"
+                android:background="@color/colorPrimary"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
